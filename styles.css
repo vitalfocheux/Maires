@@ -1,0 +1,247 @@
+/* body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #f4f4f4;
+}
+
+h1 {
+    margin-top: 20px;
+}
+
+.timeline {
+    position: relative;
+    width: 90%;
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px 0;
+    box-sizing: border-box;
+}
+
+.timeline-item {
+    position: relative;
+    width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    transition: transform 0.3s ease;
+    cursor: pointer;
+}
+
+.timeline-item:hover {
+    transform: scale(1.05);
+}
+
+.timeline-content {
+    margin-left: 30px;
+}
+
+.timeline-content h2 {
+    margin: 0;
+    font-size: 1.5em;
+}
+
+.timeline-content p {
+    margin: 10px 0 0;
+    font-size: 1em;
+    color: #555;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+    background-color: #fff;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 500px;
+    border-radius: 5px;
+}
+
+.close-button {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close-button:hover,
+.close-button:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+@media (min-width: 768px) {
+    .timeline {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+
+    .timeline-item {
+        width: 48%;
+        margin-bottom: 10px;
+    }
+
+    .timeline-item[data-commune="Trévenans"] {
+        width: 100%;
+    }
+} */
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #f4f4f4;
+}
+
+h1 {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.timeline {
+    position: relative;
+    width: 90%;
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px 0;
+    box-sizing: border-box;
+    display: flex;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+
+.timeline-column {
+    flex: 1;
+    display: flex;
+    flex-direction: column-reverse; /* Inverse l'ordre d'affichage */
+    gap: 20px;
+    min-width: 250px;
+}
+
+/* Style pour les éléments de Trévenans en mode mobile */
+@media (max-width: 767px) {
+    .timeline {
+        flex-direction: column;
+        gap: 20px;
+    }
+    
+    .timeline-column {
+        width: 100%;
+    }
+
+    .trevenans-items {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        width: 100%;
+        order: -1; /* Place Trévenans en premier en mode mobile */
+    }
+
+    .timeline-item[data-commune="Trévenans"] {
+        width: 100%;
+    }
+}
+
+/* Style pour desktop */
+@media (min-width: 768px) {
+    .timeline {
+        justify-content: space-between;
+    }
+    
+    .timeline-column {
+        width: 45%;
+    }
+
+    .trevenans-items {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        order: 1; /* Force Trévenans à apparaître après les colonnes */
+    }
+}
+
+.timeline-item {
+    position: relative;
+    padding: 20px;
+    box-sizing: border-box;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    transition: transform 0.3s ease;
+    cursor: pointer;
+}
+
+.timeline-item:hover {
+    transform: scale(1.05);
+}
+
+.timeline-item h2 {
+    margin: 0;
+    font-size: 1.5em;
+}
+
+.timeline-item p {
+    margin: 10px 0 0;
+    font-size: 1em;
+    color: #555;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+    background-color: #fff;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 500px;
+    border-radius: 5px;
+}
+
+.close-button {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close-button:hover,
+.close-button:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
